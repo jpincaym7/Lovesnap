@@ -1,0 +1,794 @@
+ERROR 2025-03-05 18:40:43,493 log 5829 123952015869632 Internal Server Error: /security/users/register/
+Traceback (most recent call last):
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 416, in initial
+    self.check_throttles(request)
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/cache/backends/memcached.py", line 75, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/hash.py", line 347, in get
+    return self._run_cmd("get", key, default, default=default, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/hash.py", line 322, in _run_cmd
+    return self._safely_run_func(client, func, default_val, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/hash.py", line 211, in _safely_run_func
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/base.py", line 687, in get
+    return self._fetch_cmd(b"get", [key], False, key_prefix=self.key_prefix).get(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/base.py", line 1133, in _fetch_cmd
+    self._connect()
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/base.py", line 424, in _connect
+    sock.connect(sockaddr)
+ConnectionRefusedError: [Errno 111] Connection refused
+ERROR 2025-03-05 18:40:44,254 basehttp 5829 123952015869632 "POST /security/users/register/ HTTP/1.1" 500 142952
+ERROR 2025-03-05 18:41:39,247 log 5829 123952015869632 Internal Server Error: /security/users/register/
+Traceback (most recent call last):
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 416, in initial
+    self.check_throttles(request)
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/cache/backends/memcached.py", line 75, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/hash.py", line 347, in get
+    return self._run_cmd("get", key, default, default=default, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/hash.py", line 322, in _run_cmd
+    return self._safely_run_func(client, func, default_val, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/hash.py", line 211, in _safely_run_func
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/base.py", line 687, in get
+    return self._fetch_cmd(b"get", [key], False, key_prefix=self.key_prefix).get(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/base.py", line 1133, in _fetch_cmd
+    self._connect()
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/base.py", line 424, in _connect
+    sock.connect(sockaddr)
+ConnectionRefusedError: [Errno 111] Connection refused
+ERROR 2025-03-05 18:41:39,253 basehttp 5829 123952015869632 "POST /security/users/register/ HTTP/1.1" 500 142952
+ERROR 2025-03-05 18:43:55,501 log 5829 123952015869632 Internal Server Error: /security/users/register/
+Traceback (most recent call last):
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 416, in initial
+    self.check_throttles(request)
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/cache/backends/memcached.py", line 75, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/hash.py", line 347, in get
+    return self._run_cmd("get", key, default, default=default, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/hash.py", line 322, in _run_cmd
+    return self._safely_run_func(client, func, default_val, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/hash.py", line 211, in _safely_run_func
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/base.py", line 687, in get
+    return self._fetch_cmd(b"get", [key], False, key_prefix=self.key_prefix).get(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/base.py", line 1133, in _fetch_cmd
+    self._connect()
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/base.py", line 424, in _connect
+    sock.connect(sockaddr)
+ConnectionRefusedError: [Errno 111] Connection refused
+ERROR 2025-03-05 18:43:55,511 basehttp 5829 123952015869632 "POST /security/users/register/ HTTP/1.1" 500 143220
+ERROR 2025-03-05 18:44:33,372 log 5829 123952003286720 Internal Server Error: /security/users/register/
+Traceback (most recent call last):
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 416, in initial
+    self.check_throttles(request)
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/cache/backends/memcached.py", line 75, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/hash.py", line 347, in get
+    return self._run_cmd("get", key, default, default=default, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/hash.py", line 322, in _run_cmd
+    return self._safely_run_func(client, func, default_val, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/hash.py", line 211, in _safely_run_func
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/base.py", line 687, in get
+    return self._fetch_cmd(b"get", [key], False, key_prefix=self.key_prefix).get(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/base.py", line 1133, in _fetch_cmd
+    self._connect()
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/base.py", line 424, in _connect
+    sock.connect(sockaddr)
+ConnectionRefusedError: [Errno 111] Connection refused
+ERROR 2025-03-05 18:44:33,377 basehttp 5829 123952003286720 "POST /security/users/register/ HTTP/1.1" 500 142952
+ERROR 2025-03-05 18:47:33,896 log 21590 123614561044160 Internal Server Error: /security/users/register/
+Traceback (most recent call last):
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 416, in initial
+    self.check_throttles(request)
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 359, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/cache/backends/memcached.py", line 75, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/hash.py", line 347, in get
+    return self._run_cmd("get", key, default, default=default, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/hash.py", line 322, in _run_cmd
+    return self._safely_run_func(client, func, default_val, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/hash.py", line 211, in _safely_run_func
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/base.py", line 687, in get
+    return self._fetch_cmd(b"get", [key], False, key_prefix=self.key_prefix).get(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/base.py", line 1133, in _fetch_cmd
+    self._connect()
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/pymemcache/client/base.py", line 424, in _connect
+    sock.connect(sockaddr)
+ConnectionRefusedError: [Errno 111] Connection refused
+ERROR 2025-03-05 18:47:33,903 basehttp 21590 123614561044160 "POST /security/users/register/ HTTP/1.1" 500 141877
+ERROR 2025-03-05 18:50:17,736 log 21773 127017831892672 Internal Server Error: /security/users/register/
+Traceback (most recent call last):
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/apps/security/viewsets/auth_view.py", line 33, in register
+    token, created = Token.objects.get_or_create(user=user)
+                     ^^^^^^^^^^^^^
+AttributeError: type object 'Token' has no attribute 'objects'
+ERROR 2025-03-05 18:50:17,762 basehttp 21773 127017831892672 "POST /security/users/register/ HTTP/1.1" 500 100515
+ERROR 2025-03-05 18:51:12,403 log 21841 140322852046528 Internal Server Error: /security/users/login/
+Traceback (most recent call last):
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/apps/security/viewsets/auth_view.py", line 51, in login
+    token, created = Token.objects.get_or_create(user=user)
+                     ^^^^^^^^^^^^^
+AttributeError: type object 'Token' has no attribute 'objects'
+ERROR 2025-03-05 18:51:12,409 basehttp 21841 140322852046528 "POST /security/users/login/ HTTP/1.1" 500 99121
+ERROR 2025-03-05 18:51:37,627 log 21841 140322852046528 Internal Server Error: /security/users/login/
+Traceback (most recent call last):
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/apps/security/viewsets/auth_view.py", line 51, in login
+    token, created = Token.objects.get_or_create(user=user)
+                     ^^^^^^^^^^^^^
+AttributeError: type object 'Token' has no attribute 'objects'
+ERROR 2025-03-05 18:51:37,630 basehttp 21841 140322852046528 "POST /security/users/login/ HTTP/1.1" 500 99134
+ERROR 2025-03-05 18:51:42,428 log 21841 140322852046528 Internal Server Error: /security/users/login/
+Traceback (most recent call last):
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/apps/security/viewsets/auth_view.py", line 51, in login
+    token, created = Token.objects.get_or_create(user=user)
+                     ^^^^^^^^^^^^^
+AttributeError: type object 'Token' has no attribute 'objects'
+ERROR 2025-03-05 18:51:42,432 basehttp 21841 140322852046528 "POST /security/users/login/ HTTP/1.1" 500 99133
+ERROR 2025-03-05 19:06:38,065 log 22827 136976839739072 Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/engine.py", line 163, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: includes/base.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/apps/photo/views/home.py", line 47, in home_view
+    return render(request, 'sections/home.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/backends/django.py", line 109, in render
+    reraise(exc, self.backend)
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/backends/django.py", line 130, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: includes/base.html
+ERROR 2025-03-05 19:06:38,082 basehttp 22827 136976839739072 "GET / HTTP/1.1" 500 140647
+ERROR 2025-03-05 19:06:48,783 log 22827 136976839739072 Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/apps/photo/views/home.py", line 47, in home_view
+    return render(request, 'sections/home.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/loader_tags.py", line 199, in render
+    template = context.template.engine.select_template(template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/engine.py", line 208, in select_template
+    return self.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 573, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 35: 'static'. Did you forget to register or load this tag?
+ERROR 2025-03-05 19:06:48,790 basehttp 22827 136976839739072 "GET / HTTP/1.1" 500 198653
+ERROR 2025-03-05 19:07:26,280 log 22827 136976839739072 Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/apps/photo/views/home.py", line 47, in home_view
+    return render(request, 'sections/home.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/loader_tags.py", line 210, in render
+    return template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 173, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/defaulttags.py", line 550, in render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/urls/resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'albums' not found. 'albums' is not a valid view function or pattern name.
+ERROR 2025-03-05 19:07:26,302 basehttp 22827 136976839739072 "GET / HTTP/1.1" 500 183589
+ERROR 2025-03-05 19:07:42,479 log 22827 136976839739072 Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/apps/photo/views/home.py", line 47, in home_view
+    return render(request, 'sections/home.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/urls/resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'sessions_list' not found. 'sessions_list' is not a valid view function or pattern name.
+ERROR 2025-03-05 19:07:42,488 basehttp 22827 136976839739072 "GET / HTTP/1.1" 500 161695
+ERROR 2025-03-05 20:26:33,782 log 22827 136976839739072 Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/apps/photo/views/home.py", line 47, in home_view
+    return render(request, 'sections/home.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/urls/resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'signup' not found. 'signup' is not a valid view function or pattern name.
+ERROR 2025-03-05 20:26:33,847 basehttp 22827 136976839739072 "GET / HTTP/1.1" 500 159669
+ERROR 2025-03-05 20:53:29,017 log 22827 136976839739072 Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/loader_tags.py", line 199, in render
+    template = context.template.engine.select_template(template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/engine.py", line 214, in select_template
+    raise TemplateDoesNotExist(", ".join(not_found))
+django.template.exceptions.TemplateDoesNotExist: includes/navbar.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/apps/photo/views/home.py", line 47, in home_view
+    return render(request, 'sections/home.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/backends/django.py", line 109, in render
+    reraise(exc, self.backend)
+  File "/home/ingdavp/Escritorio/PROYECTS/lovesnap/venv/lib/python3.12/site-packages/django/template/backends/django.py", line 130, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: includes/navbar.html
+ERROR 2025-03-05 20:53:29,033 basehttp 22827 136976839739072 "GET / HTTP/1.1" 500 148781

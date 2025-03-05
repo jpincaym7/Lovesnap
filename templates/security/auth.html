@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% load tailwind_tags %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    {% tailwind_css %}
+</head>
+<body class="antialiased transition-colors duration-300" x-data="{ darkMode: localStorage.getItem('darkMode') === 'true' }" :class="darkMode ? 'dark bg-gray-900' : 'bg-gray-50'">
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="max-w-4xl w-full bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transition-colors duration-300" x-data="auth">
+            <div class="grid md:grid-cols-5 h-full">
+                <!-- Form Section (3 columns) -->
+                <div class="p-6 md:p-8 md:col-span-3">
+                    <!-- Theme Toggle -->
+                    <div class="flex justify-end mb-4">
+                        <button @click="darkMode = !darkMode; localStorage.setItem('darkMode', darkMode)" 
+                                class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 transition-colors duration-300">
+                            <svg x-show="!darkMode" class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                            </svg>
+                            <svg x-show="darkMode" class="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Title -->
+                    <div class="text-center mb-8">
+                        <h1 class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-indigo-600 dark:from-blue-400 dark:to-indigo-500">Welcome Back</h1>
+                        <p class="text-gray-600 dark:text-gray-400 mt-2">Please enter your details</p>
+                    </div>
+
+                    <!-- Tabs -->
+                    <div class="flex gap-2 mb-6">
+                        <button 
+                            @click="activeTab = 'login'"
+                            :class="{'bg-blue-500 dark:bg-blue-600 text-white': activeTab === 'login', 
+                                    'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300': activeTab !== 'login'}"
+                            class="flex-1 py-2 px-4 rounded-lg font-medium transition-all duration-300">
+                            Login
+                        </button>
+                        <button 
+                            @click="activeTab = 'register'"
+                            :class="{'bg-blue-500 dark:bg-blue-600 text-white': activeTab === 'register',
+                                    'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300': activeTab !== 'register'}"
+                            class="flex-1 py-2 px-4 rounded-lg font-medium transition-all duration-300">
+                            Register
+                        </button>
+                    </div>
+
+                    <!-- Error Alert -->
+                    <div 
+                        x-show="error" 
+                        x-transition
+                        x-text="error"
+                        class="mb-4 p-3 rounded-lg bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 text-sm cursor-pointer"
+                        @click="error = null">
+                    </div>
+
+                    <!-- Login Form -->
+                    <form x-show="activeTab === 'login'" @submit.prevent="handleLogin" class="space-y-4">
+                        {% csrf_token %}
+                        <div>
+                            <input 
+                                type="text" 
+                                x-model="loginData.login"
+                                class="w-full px-4 py-2.5 rounded-lg border dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600 transition duration-200"
+                                placeholder="Email or Username"
+                                required
+                            >
+                        </div>
+                        <div class="relative">
+                            <input 
+                                :type="showPassword ? 'text' : 'password'"
+                                x-model="loginData.password"
+                                class="w-full px-4 py-2.5 rounded-lg border dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600 transition duration-200"
+                                placeholder="Password"
+                                required
+                            >
+                            <button 
+                                type="button"
+                                @click="showPassword = !showPassword"
+                                class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400"
+                            >
+                                <svg x-show="!showPassword" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                </svg>
+                                <svg x-show="showPassword" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <label class="flex items-center">
+                                <input type="checkbox" x-model="loginData.remember" class="rounded border-gray-300 dark:border-gray-600 text-blue-500 focus:ring-blue-500 dark:focus:ring-blue-600">
+                                <span class="ml-2 text-gray-600 dark:text-gray-400">Remember me</span>
+                            </label>
+                            <a href="#" class="text-blue-500 dark:text-blue-400 hover:underline">Forgot password?</a>
+                        </div>
+                        <button 
+                            type="submit"
+                            class="w-full py-2.5 bg-blue-500 dark:bg-blue-600 text-white rounded-lg hover:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600 transition-all duration-300"
+                            :disabled="loading"
+                        >
+                            <span x-show="!loading">Sign in</span>
+                            <svg x-show="loading" class="animate-spin h-5 w-5 mx-auto text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                        </button>
+                    </form>
+
+                    <!-- Register Form -->
+                    <form x-show="activeTab === 'register'" @submit.prevent="handleRegister" class="space-y-4">
+                        {% csrf_token %}
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <input 
+                                    type="text" 
+                                    x-model="registerData.first_name"
+                                    class="w-full px-4 py-2.5 rounded-lg border dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600 transition duration-200"
+                                    placeholder="First name"
+                                >
+                            </div>
+                            <div>
+                                <input 
+                                    type="text" 
+                                    x-model="registerData.last_name"
+                                    class="w-full px-4 py-2.5 rounded-lg border dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600 transition duration-200"
+                                    placeholder="Last name"
+                                >
+                            </div>
+                        </div>
+                        <div>
+                            <input 
+                                type="text" 
+                                x-model="registerData.username"
+                                class="w-full px-4 py-2.5 rounded-lg border dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600 transition duration-200"
+                                placeholder="Username"
+                                required
+                            >
+                        </div>
+                        <div>
+                            <input 
+                                type="email" 
+                                x-model="registerData.email"
+                                class="w-full px-4 py-2.5 rounded-lg border dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600 transition duration-200"
+                                placeholder="Email address"
+                                required
+                            >
+                        </div>
+                        <div>
+                            <input 
+                                type="tel" 
+                                x-model="registerData.phone"
+                                class="w-full px-4 py-2.5 rounded-lg border dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600 transition duration-200"
+                                placeholder="Phone"
+                            >
+                        </div>
+                        <div>
+                            <textarea 
+                                x-model="registerData.bio"
+                                class="w-full px-4 py-2.5 rounded-lg border dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600 transition duration-200"
+                                placeholder="Bio (optional)"
+                                rows="2"
+                            ></textarea>
+                        </div>
+                        <div class="relative">
+                            <input 
+                                :type="showPassword ? 'text' : 'password'"
+                                x-model="registerData.password"
+                                class="w-full px-4 py-2.5 rounded-lg border dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600 transition duration-200"
+                                placeholder="Password"
+                                required
+                            >
+                        </div>
+                        <div class="relative">
+                            <input 
+                                :type="showPassword ? 'text' : 'password'"
+                                x-model="registerData.confirm_password"
+                                class="w-full px-4 py-2.5 rounded-lg border dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600 transition duration-200"
+                                placeholder="Confirm password"
+                                required
+                            >
+                            <button 
+                                type="button"
+                                @click="showPassword = !showPassword"
+                                class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400"
+                            >
+                                <svg x-show="!showPassword" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                </svg>
+                                <svg x-show="showPassword" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">
+                            Password must contain at least 8 characters, one letter and one number
+                        </p>
+                        <button 
+                            type="submit"
+                            class="w-full py-2.5 bg-blue-500 dark:bg-blue-600 text-white rounded-lg hover:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600 transition-all duration-300"
+                            :disabled="loading"
+                        >
+                            <span x-show="!loading">Create Account</span>
+                            <svg x-show="loading" class="animate-spin h-5 w-5 mx-auto text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Illustration Section (2 columns) -->
+                <div class="hidden md:block md:col-span-2 p-8 bg-gradient-to-br from-blue-500 to-indigo-600 dark:from-blue-600 dark:to-indigo-700">
+                    <div x-data="{ currentSlide: 0 }" class="h-full flex flex-col justify-center">
+                        <!-- Slides -->
+                        <div class="relative flex-1 flex items-center justify-center">
+                            <!-- Security -->
+                            <div x-show="currentSlide === 0" 
+                                x-transition:enter="transition ease-out duration-300"
+                                x-transition:enter-start="opacity-0 transform translate-y-4"
+                                x-transition:enter-end="opacity-100 transform translate-y-0"
+                                class="text-center">
+                                <div class="w-32 h-32 mx-auto mb-6 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center">
+                                    <svg class="w-16 h-16 text-blue-500 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24 " xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                                </svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-2">Secure Authentication</h3>
+                                <p class="text-blue-100">State-of-the-art security for your peace of mind</p>
+                            </div>
+
+                            <!-- Easy Access -->
+                            <div x-show="currentSlide === 1"
+                                x-transition:enter="transition ease-out duration-300"
+                                x-transition:enter-start="opacity-0 transform translate-y-4"
+                                x-transition:enter-end="opacity-100 transform translate-y-0"
+                                class="text-center">
+                                <div class="w-32 h-32 mx-auto mb-6 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center">
+                                    <svg class="w-16 h-16 text-blue-500 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-2">Quick Access</h3>
+                                <p class="text-blue-100">Login instantly with enhanced security</p>
+                            </div>
+
+                            <!-- Support -->
+                            <div x-show="currentSlide === 2"
+                                x-transition:enter="transition ease-out duration-300"
+                                x-transition:enter-start="opacity-0 transform translate-y-4"
+                                x-transition:enter-end="opacity-100 transform translate-y-0"
+                                class="text-center">
+                                <div class="w-32 h-32 mx-auto mb-6 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center">
+                                    <svg class="w-16 h-16 text-blue-500 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-2">24/7 Support</h3>
+                                <p class="text-blue-100">Round-the-clock assistance whenever you need</p>
+                            </div>
+                        </div>
+
+                        <!-- Indicators -->
+                        <div class="flex justify-center space-x-2 mt-6">
+                            <button @click="currentSlide = 0" 
+                                    :class="{'bg-white': currentSlide === 0, 'bg-blue-200': currentSlide !== 0}"
+                                    class="w-2 h-2 rounded-full transition-colors duration-200">
+                            </button>
+                            <button @click="currentSlide = 1"
+                                    :class="{'bg-white': currentSlide === 1, 'bg-blue-200': currentSlide !== 1}"
+                                    class="w-2 h-2 rounded-full transition-colors duration-200">
+                            </button>
+                            <button @click="currentSlide = 2"
+                                    :class="{'bg-white': currentSlide === 2, 'bg-blue-200': currentSlide !== 2}"
+                                    class="w-2 h-2 rounded-full transition-colors duration-200">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/auth.js' %}"></script>
+</body>
+</html>
